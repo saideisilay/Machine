@@ -18,7 +18,6 @@ import weka.classifiers.trees.REPTree;
 import weka.classifiers.trees.RandomForest;
 
 public class MachineLearning {
-
 	public Instances loadCustomDataset(String filePath) throws Exception {
 		CSVLoader loader = new CSVLoader();
 		loader.setFile(new java.io.File(filePath));
@@ -32,7 +31,7 @@ public class MachineLearning {
 	public String printActualPredict(Instances testDataSet, Classifier regressionModel) throws Exception {
 		Double actualValue =0.0;
 		Double predict = 0.0;
-		String result = null;
+		String result = " ";
 		for (int i = 0; i < testDataSet.numInstances(); i++) {
 			// get class double value for current instance
 			actualValue = testDataSet.instance(i).classValue();
@@ -49,7 +48,8 @@ public class MachineLearning {
 
 	public String evaluationTest(Instances trainDataSet,Instances testDataSet,Classifier regressionModel) throws Exception	
 	 {
-	  System.out.println("___________________________________TEST__________________________________");
+	 //  System.out.println("___________________________________TEST__________________________________");
+		
 	  String resultEvuTest;
 	  Evaluation evaluationModel = new Evaluation(trainDataSet);
 	 // evaluationModel.crossValidateModel(regressionModel, testDataSet, 10,new Random(1));
@@ -68,7 +68,8 @@ public class MachineLearning {
 	 
 	public String evaluationTrain(Instances trainDataSet,Classifier  regressionModel) throws Exception
 	 {
-	  System.out.println("___________________________TRAIN__________________________________________");
+	//   System.out.println("___________________________TRAIN__________________________________________");
+		
 	  Evaluation evaluationModel = new Evaluation(trainDataSet);
 	  //evaluationModel.crossValidateModel(regressionModel, trainDataSet, 10,new Random(1));
 	  //System.out.println("Estimated Accuracy: "+Double.toString(evaluationModel.pctCorrect()));
@@ -85,7 +86,7 @@ public class MachineLearning {
 	 }
 
 	public List smo_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
-		System.out.println("................. smo_Regression..................");
+	// 	System.out.println("................. smo_Regression..................");
 		SMOreg smo = new SMOreg();
 		smo.buildClassifier(trainDataSet);
 		
@@ -103,7 +104,7 @@ public class MachineLearning {
 	}
 
 	public List linear_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
-		System.out.println("................. linear_Regression..................");
+	// 	System.out.println("................. linear_Regression..................");
 		LinearRegression LinearReg = new LinearRegression();
 		LinearReg.buildClassifier(trainDataSet);
 		// output model
@@ -115,7 +116,7 @@ public class MachineLearning {
 	}
 
 	public List IBK_Regression(Instances trainDataSet, Instances testDataSet, int neighbors) throws Exception {
-		System.out.println("................. IBK_Regression..................");
+	// 	System.out.println("................. IBK_Regression..................");
 		// GaussianProcesses regs = new GaussianProcesses();
 
 		Classifier regsIBk = new IBk(neighbors); // IBK(n) n kom�u say�s�
@@ -131,7 +132,8 @@ public class MachineLearning {
 	}
 
 	public List RandomTree_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
-		System.out.println("................. RandomTree_Regression..................");
+	// 	System.out.println("................. RandomTree_Regression..................");
+		
 		// GaussianProcesses regs = new GaussianProcesses();
 
 		RandomTree regsRandomTree = new RandomTree();
@@ -145,20 +147,23 @@ public class MachineLearning {
 		return lstRandomTree;
 	}
 
-	public void RandomForest_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
-		System.out.println("................. RandomForest_Regression..................");
+	public List RandomForest_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
+	// 	System.out.println("................. RandomForest_Regression..................");
+		
 		// GaussianProcesses regs = new GaussianProcesses();
 
 		RandomForest regsRandomForest = new RandomForest();
 		regsRandomForest.buildClassifier(trainDataSet);
 
 		// output model
-		evaluationTrain(trainDataSet, regsRandomForest);
-		evaluationTest(trainDataSet, testDataSet, regsRandomForest);
-		printActualPredict(testDataSet, regsRandomForest);
+		List randForest = new List();
+		randForest.add(evaluationTrain(trainDataSet, regsRandomForest));
+		randForest.add(evaluationTest(trainDataSet, testDataSet, regsRandomForest));
+		randForest.add(printActualPredict(testDataSet, regsRandomForest));
+		return randForest;
 	}
 
-	public void SGD_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
+	public List SGD_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
 		System.out.println("................. SGD_Regression..................");
 		// GaussianProcesses regs = new GaussianProcesses();
 
@@ -166,10 +171,11 @@ public class MachineLearning {
 		regsSGD.buildClassifier(trainDataSet);
 
 		// output model
-		evaluationTest(trainDataSet, testDataSet, regsSGD);
-
-		evaluationTrain(trainDataSet, regsSGD);
-		printActualPredict(testDataSet, regsSGD);
+		List lstSGD = new List();
+		lstSGD.add(evaluationTrain(trainDataSet, regsSGD));
+		lstSGD.add(evaluationTest(trainDataSet, testDataSet, regsSGD));
+		lstSGD.add(printActualPredict(testDataSet, regsSGD));
+		return lstSGD;
 	}
 
 	public void MultilayerPerceptron_Regression(Instances trainDataSet, Instances testDataSet) throws Exception {
@@ -180,9 +186,8 @@ public class MachineLearning {
 		regsMulPer.buildClassifier(trainDataSet);
 
 		// output model
-		evaluationTest(trainDataSet, testDataSet, regsMulPer);
-
 		evaluationTrain(trainDataSet, regsMulPer);
+		evaluationTest(trainDataSet, testDataSet, regsMulPer);
 		printActualPredict(testDataSet, regsMulPer);
 	}
 
@@ -194,9 +199,8 @@ public class MachineLearning {
 		regsRepTree.buildClassifier(trainDataSet);
 
 		// output model
-		evaluationTest(trainDataSet, testDataSet, regsRepTree);
-
 		evaluationTrain(trainDataSet, regsRepTree);
+		evaluationTest(trainDataSet, testDataSet, regsRepTree);	
 		printActualPredict(testDataSet, regsRepTree);
 	}
 
@@ -208,9 +212,8 @@ public class MachineLearning {
 		regsLogistic.buildClassifier(trainDataSet);
 
 		// output model
-		evaluationTest(trainDataSet, testDataSet, regsLogistic);
-
 		evaluationTrain(trainDataSet, regsLogistic);
+		evaluationTest(trainDataSet, testDataSet, regsLogistic);
 		printActualPredict(testDataSet, regsLogistic);
 	}
 
@@ -222,9 +225,8 @@ public class MachineLearning {
 		regsAdditive.buildClassifier(trainDataSet);
 
 		// output model
-		evaluationTest(trainDataSet, testDataSet, regsAdditive);
-
 		evaluationTrain(trainDataSet, regsAdditive);
+		evaluationTest(trainDataSet, testDataSet, regsAdditive);
 		printActualPredict(testDataSet, regsAdditive);
 	}
 }

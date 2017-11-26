@@ -19,6 +19,10 @@ import java.awt.GridLayout;
 
 public class InterfaceProject extends JFrame {
 
+	/**
+	 * Interface i
+	 */
+	private static final long serialVersionUID = -2435137644007794100L;
 	private JPanel contentPane;
 	private JTextField readFileText;
 	private JTextField readTestText;
@@ -26,11 +30,13 @@ public class InterfaceProject extends JFrame {
 	private TextArea txtIbk;
 	private TextArea txtSmo;
 	private TextArea txtRandomTree;
+	private TextArea txtRandFore;
+	private JTextField txtNeighbor;
+	private TextArea txtSgd;
 
 	MachineLearning fonksiyon = new MachineLearning();
 	Instances trainDataSet, testDataSet, instances;
-	private JTextField txtNeighbor;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -246,10 +252,7 @@ public class InterfaceProject extends JFrame {
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-
-			
-				
+				}		
 			}
 		});
 		btnNewButton.setBounds(10, 28, 89, 23);
@@ -298,9 +301,71 @@ public class InterfaceProject extends JFrame {
 		txtRandomTree.setBounds(10, 46, 751, 468);
 		panel_2.add(txtRandomTree);
 
-		JLayeredPane layeredPane_3 = new JLayeredPane();
-		tabbedPane.addTab("New tab", null, layeredPane_3, null);
+		JLayeredPane RandomForest = new JLayeredPane();
+		tabbedPane.addTab("Random Forest Reg", null, RandomForest, null);
+		
+		JButton btnPredictRandomForest = new JButton("Predict");
+		btnPredictRandomForest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
 
+					List output = fonksiyon.RandomForest_Regression(trainDataSet, testDataSet);
+
+					String res = " ";
+					for (int j = 0; j < output.getItems().length; j++) {
+						res += output.getItem(j);
+					}
+
+					txtRandFore.setText(res);
+					txtRandFore.getText();
+				}
+
+				catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+
+				}
+			}
+		});
+		btnPredictRandomForest.setBounds(10, 11, 89, 23);
+		RandomForest.add(btnPredictRandomForest);
+		
+		txtRandFore = new TextArea();
+		txtRandFore.setBounds(10, 42, 751, 472);
+		RandomForest.add(txtRandFore);
+		
+		JLayeredPane SGD = new JLayeredPane();
+		tabbedPane.addTab("SGD Regression", null, SGD, null);
+		
+		JButton PredictPureRand = new JButton("Predict");
+		PredictPureRand.addActionListener(new ActionListener() {//BURAYA TEKRARDAN BAK
+			public void actionPerformed(ActionEvent e) {
+				try {
+
+					List output = fonksiyon.SGD_Regression(trainDataSet, testDataSet);
+
+					String res = " ";
+					for (int j = 0; j < output.getItems().length; j++) {
+						res += output.getItem(j);
+					}
+
+					txtSgd.setText(res);
+					txtSgd.getText();
+				}
+
+				catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+
+				}
+			}
+		});
+		PredictPureRand.setBounds(10, 11, 89, 23);
+		SGD.add(PredictPureRand);
+		
+		txtSgd = new TextArea();
+		txtSgd.setBounds(10, 46, 751, 468);
+		SGD.add(txtSgd);
 	}
 
 	public Instances loadInstances(String path) {
