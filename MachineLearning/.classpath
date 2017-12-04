@@ -4,12 +4,20 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/weka.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/arpack_combined_all.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/core.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/jgoodies-forms-1.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/jgoodies-forms-1.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/miglayout15-swing.jar"/>
-	<classpathentry kind="lib" path="C:/Users/berkayana/Dropbox/7.Semester Lecture All Notes/Software Std/MACHINEPROJECT/MachineLearning/mtj.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/arpack_combined_all.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/mtj.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Saideisilay/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/weka.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/arpack_combined_all.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/core.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/miglayout-src.zip"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/mtj.jar"/>
+	<classpathentry kind="lib" path="E:/Dropbox/7.Semester Lecture All Notes/Software Std/GithubImport/MachineLearning/weka.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
